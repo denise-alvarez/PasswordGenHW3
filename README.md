@@ -6,3 +6,5 @@
 - This project takes the guessing game out of creating a password and simply gives it to the user.
 - In this project I learned how to take everything that was thought this last week and put it all into one project. By doing this I am able to see how certain activities learned could be used in every day life.
 
+https://github.com/denise-alvarez/PasswordGenHW3.git
+https://denise-alvarez.github.io/PasswordGenHW3/
