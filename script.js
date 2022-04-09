@@ -12,55 +12,55 @@ const lowChars = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p
 const upChars = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'
 ];
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Assignment Code
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+  let password = genPass();
+  let passwordText = document.querySelector("#password");
+
+  if (password === undefined) {
+    return
+  }
 
   passwordText.value = password;
 
+}
+
+//Create array for all possible character combinations//
+
+function genPass() {
+  let selectedOptions = getUserSelection()
+  
+  if (selectedOptions === undefined) {
+    return
+  }  
+
+let { length, lowercase, uppercase, SpecialChars, numbers } = selectedOptions
+let possibleChars = [];
+let genPass = "";
+
+if (SpecialChars) {
+  possibleChars = possibleChars.concat(specialChars)
+}
+
+if (numbers) {
+  possibleChars = possibleChars.concat(numChars)
+}
+
+if (lowercase) {
+  possibleChars = possibleChars.concat(lowChars)
+}
+
+if (uppercase) {
+  possibleChars = possibleChars.concat(upChars)
+}
+
+for (i = 0; i < length + 1; i++) {
+  let randomCharIndex = Math.floor(Math.random() * possibleChars.length)
+  genPass += possibleChars[randomCharIndex]
+}
+return genPass
 }
 
 // Add event listener to generate button
