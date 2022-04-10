@@ -12,7 +12,7 @@ const lowChars = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p
 const upChars = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'
 ];
 
-var generateBtn = document.querySelector("#generate");
+let generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
@@ -36,11 +36,11 @@ function genPass() {
     return
   }  
 
-let { length, lowercase, uppercase, SpecialChars, numbers } = selectedOptions
+let { length, lowercase, uppercase, speChars, numbers } = selectedOptions
 let possibleChars = [];
 let genPass = "";
 
-if (SpecialChars) {
+if (speChars) {
   possibleChars = possibleChars.concat(specialChars)
 }
 
@@ -56,7 +56,7 @@ if (uppercase) {
   possibleChars = possibleChars.concat(upChars)
 }
 
-for (i = 0; i < length; i++) {
+for (i = 0; i < length + 0;  i++) {
   let randomCharIndex = Math.floor(Math.random() * possibleChars.length)
   genPass += possibleChars[randomCharIndex]
 }
@@ -93,7 +93,7 @@ function getUserSelection() {
   
   let optionObj = {
     length: numChars,
-    specialCharacters: useSpecialChars,
+    speChars: useSpecialChars,
     numbers: useNumChars,
     lowercase: useLowChars,
     uppercase: useUpChars
